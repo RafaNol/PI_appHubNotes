@@ -1,12 +1,28 @@
-.app 
+body 
 {
-    width: 393px; 
-    height: 812px;
-    margin: 0 auto; 
-    font-size: 24px;
-    line-height: 15px;
-    overflow: hidden;
-    background-color: #f4970b;
-  }
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 1170px;
+  height: 2532px;
+  background-color: #F4970B;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+}
 
-  
+.barra-inferior 
+{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}

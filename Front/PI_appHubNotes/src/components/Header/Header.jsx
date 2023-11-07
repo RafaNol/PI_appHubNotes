@@ -1,13 +1,8 @@
-import React from 'react';
-import './header.css';
+import React from "react";
+import "./Header.css";
 
-function Header() {
-  return (
-    <header>
-      <h1>Suas Anotações</h1> 
-    </header>
-    
-  );
-}
+const Header = () => {
+  return <div className="header">Últimas Listas</div>;
+};
 
 export default Header;

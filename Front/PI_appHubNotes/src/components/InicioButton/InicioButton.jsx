@@ -1,10 +1,12 @@
-import React from 'react';
-import './InicioButton.css';
+import React from "react";
+import "./InicioButton.css";
 
-function InicioButton() {
+const InicioButton = () => {
   return (
-    <button className="inicio-button">Início</button>
+    <div className="inicio-button">
+      <button>Início</button>
+    </div>
   );
-}
+};
 
 export default InicioButton;

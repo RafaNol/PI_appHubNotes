@@ -1,12 +1,8 @@
-import React from 'react';
-import './Button.css'; // Importa o arquivo CSS com as regras de estilo
+import React from "react";
+import "./Button.css";
 
-function MyButton() {
-  return (
-    <button className="button">Clique para adicionar</button>
-  );
-}
+const Button = ({ label }) => {
+  return <button className="button">{label}</button>;
+};
 
-export default MyButton;
-
-
+export default Button;
