@@ -1,28 +1,84 @@
-body 
+.App 
 {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f2f2f2;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 1170px;
-  height: 2532px;
-  background-color: #F4970B;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 20px;
+    text-align: center;
+    background-color: #F4970B;
+
 }
 
-.barra-inferior 
+    html, body, #root 
 {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
+    width: 393px;
+    height: 852px;
+    margin: auto;
+    padding: 0;
+    background-color: #ffffff;
+  }
+  
+  
+  .App-header 
+  {
+    min-height: 10vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(5px + 10px);
+    color: #006633
+  }
+  
+  .container 
+  {
+    width: 393px;
+    height: 852px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  
+  }
+  
+  .input-container
+   {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] 
+  {
+    width: 300px;
+    padding: 5px;
+  }
+  
+  textarea 
+  {
+    width: 300px;
+    height: 100px;
+    padding: 5px;
+  }
+  
+  button 
+  {
+    background-color: #00CC66;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .tarefas-container 
+  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .tarefa 
+  {
+    border: 10px solid #ccc;
+    padding: 10px;
+    width: 300px;
+  }
+  
