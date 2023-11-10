@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 
 @RestController
@@ -28,6 +29,10 @@ public class NotaController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Nota> atualizarNota(@PathVariable String id, @RequestBody Nota nota) {
+        if (!notaRepository.existsById(id)) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    
         Nota updatedNota = notaRepository.findById(id)
                 .map(n -> {
                     n.setTitle(nota.getTitle());
@@ -39,7 +44,7 @@ public class NotaController {
                     return notaRepository.save(nota);
                 });
         return new ResponseEntity<>(updatedNota, HttpStatus.OK);
-    }
+}
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> excluirNota(@PathVariable String id) {
