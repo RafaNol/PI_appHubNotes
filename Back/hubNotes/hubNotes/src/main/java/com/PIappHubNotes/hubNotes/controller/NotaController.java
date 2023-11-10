@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
 
@@ -27,22 +28,23 @@ public class NotaController {
         return notaRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<Nota> getNota(@PathVariable String id){
+        return notaRepository.findById(id)
+                .map(nota -> new ResponseEntity<>(nota, HttpStatus.OK))
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nota não encontrada"));
+    }
+
     @PutMapping("/{id}")
     public ResponseEntity<Nota> atualizarNota(@PathVariable String id, @RequestBody Nota nota) {
-        if (!notaRepository.existsById(id)) {
-            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
-        }
-    
+        
         Nota updatedNota = notaRepository.findById(id)
                 .map(n -> {
                     n.setTitle(nota.getTitle());
                     n.setBody(nota.getBody());
                     return notaRepository.save(n);
                 })
-                .orElseGet(() -> {
-                    nota.setId(id);
-                    return notaRepository.save(nota);
-                });
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Nota não encontrada"));
         return new ResponseEntity<>(updatedNota, HttpStatus.OK);
 }
 
