@@ -1,0 +1,16 @@
+
+
+.HomePage h1{
+    text-align: center;
+    margin: 20px auto;
+    color: #006633;
+    font-size: 35px;
+}
+
+.HomePage h2{
+    text-align: center;
+    margin: 20px auto;
+    color: #006633;
+    font-size: 25px;
+    font-weight: bold;
+}

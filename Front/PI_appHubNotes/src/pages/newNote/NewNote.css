@@ -1,0 +1,45 @@
+.new-note {
+    text-align: center;
+    background-color: #F4970B;
+}
+
+.new-note h1 {
+    font-size: 35px;
+    padding: 10px;
+    color: #006633
+}
+
+
+.new-note .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.new-note input {
+    width: 100%;
+    font-size: 20px;
+    padding: 5px;
+    background-color: #F9CB85;
+    border: none;
+    border-radius: 5px;
+}
+
+.new-note textarea {
+    border: none;
+    background-color: #FCE0B6;
+    width: 100%;
+    height: 100vh;
+    max-height: 60vh;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 5px;
+    resize: none;
+}
+
+.new-note .bottom-button{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+}

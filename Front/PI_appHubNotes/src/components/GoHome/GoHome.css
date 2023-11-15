@@ -1,0 +1,12 @@
+.home-area-button{
+    background-color: #F9CB85;
+    display: flex;
+    justify-content: center;
+    width: 393px;
+    position: fixed;
+    bottom: 0;
+}
+
+.home-area-button img{
+
+}
