@@ -1,19 +1,31 @@
 import HomePage from "./pages/homePage/HomePage.jsx";
-import NewNote from "./pages/newNote/NewNote.jsx";
-import NoteList from "./pages/noteList/NoteList.jsx";
-import {createBrowserRouter} from "react-router-dom";
+import NewNote, {loader as fetchNoteById, action as submitData} from "./pages/newNote/NewNote.jsx";
+import NoteList, {loader as notesLoader} from "./pages/noteList/NoteList.jsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import GoHome from "./components/GoHome/GoHome.jsx";
 
 const router = createBrowserRouter([
     {
-        path: "/",
+        path: "",
         element: <GoHome />,
         children: [
             {index: true, element: <HomePage />},
             {
-                path: 'notes',
-                element: <NoteList />
-                loader: noteLoader
+                path: '/notes',
+                element: <NoteList />,
+                loader: notesLoader,
+
+            },
+            {
+                path: '/notes/:noteId',
+                element: <NewNote method="PUT"/>,
+                loader: fetchNoteById,
+                action: submitData
+            },
+            {
+                path: "/notes/new-note",
+                element: <NewNote method="POST" />,
+                action: submitData
             }
         ]
     }
@@ -21,9 +33,7 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-    <div className="App">
-        <HomePage />
-    </div>
+      <RouterProvider router={router} />
   );
 }
 

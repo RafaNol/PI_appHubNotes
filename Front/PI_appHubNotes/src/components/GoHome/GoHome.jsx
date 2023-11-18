@@ -1,11 +1,18 @@
 import "./GoHome.css"
 import home from "../../../public/images/home.svg"
+import {Link, Outlet} from "react-router-dom";
 
-const GoHome = (props) => {
+const GoHome = () => {
     return(
-        <div onClick={props.onClick} className="home-area-button">
-            <img src={home} alt=""/>
-        </div>
+        <>
+            <Outlet />
+            <Link to={"/"} style={{ color: 'inherit', textDecoration: 'inherit'}}>
+                <div className="home-area-button">
+                    <img src={home} alt=""/>
+                </div>
+            </Link>
+        </>
+
     )
 }
 

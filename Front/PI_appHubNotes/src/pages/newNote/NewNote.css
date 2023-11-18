@@ -1,6 +1,7 @@
 .new-note {
     text-align: center;
     background-color: #F4970B;
+    position: relative;
 }
 
 .new-note h1 {
@@ -42,4 +43,10 @@
     width: 100%;
     display: flex;
     justify-content: space-evenly;
+}
+
+
+
+.delete img {
+    width: 28px;
 }

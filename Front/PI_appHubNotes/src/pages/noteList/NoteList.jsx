@@ -1,33 +1,32 @@
 import "./NoteList.css";
 import AppButton from "../../components/AppButton/AppButton.jsx";
 import Note from "../../components/Note/Note.jsx";
-import {useLoaderData} from "react-router-dom";
+import {Link, useLoaderData} from "react-router-dom";
 
 const NoteList = () => {
 
-    const data = useLoaderData();
+    const notes = useLoaderData();
 
-    const lists = ["Compras", "Etapas do PI", "Temas De Estudos", "Itens Para Viagem", "Planos Para o Ano", "Temas De Estudos", "Itens Para Viagem", "Planos Para o Ano", "Temas De Estudos", "Itens Para Viagem", "Planos Para o Ano"];
 
     return (
-        <div className="note-list">
-            <h1>Suas Anotações</h1>
-            <div className="list-container">
-                {lists.map((list, index) => (
-                    <Note key={index} index={index} title={list}/>
-                ))}
-            </div>
-            <div className="button-position">
-                <AppButton className="test">Criar Nota</AppButton>
-            </div>
 
+        <div className="note-list">
+            <div>
+                <h1>Suas Anotações</h1>
+                <div className="list-container">
+                    {notes.length === 0? <p className="empty-note">Sem Anotações para Exibir, experimente Criar uma</p> : notes.map((note, index) => (
+                        <Note to={note.id} key={note.id} index={index} title={note.title} idItem={note.id}/>
+                    ))}
+                </div>
+            </div>
+            <Link to={"/notes/new-note" } className="test"><AppButton >Criar Anotação</AppButton></Link>
         </div>
     );
 
 };
 
-export async function loader(){
-    
-}
-
 export default NoteList;
+
+export async function loader() {
+    return await fetch('http://localhost:8080/notas');
+}

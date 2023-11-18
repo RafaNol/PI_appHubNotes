@@ -4,6 +4,9 @@
     padding: 10px;
     margin: 3px 0;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
 }
 
 .note-item:hover {
@@ -21,3 +24,4 @@
 .note-item .var-colorB{
     background-color: #F9CB85;
 }
+

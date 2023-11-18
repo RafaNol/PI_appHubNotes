@@ -1,6 +1,8 @@
 .note-list {
   width: 393px;
   margin: 0 auto;
+  position: relative;
+  height: 95vh;
 }
 
 .note-list h1{
@@ -32,12 +34,22 @@
   background-color: #FCE0B6;
 }
 
+.note-list .empty-note{
+  color: #006633;
+  font-size: 25px;
+  text-align: center;
+  width: 90%;
+  background-color: #F9CB85;
+  border-radius: 8px;
+}
+
 .note-list .var-colorB{
   background-color: #F9CB85;
 }
 
-.button-position{
+
+.note-list .test{
   position: absolute;
-  right: 20px;
-  bottom: 50px;
+  right: 10px;
+  bottom: 45px;
 }

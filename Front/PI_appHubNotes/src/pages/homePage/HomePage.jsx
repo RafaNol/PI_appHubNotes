@@ -5,6 +5,7 @@ import notes from "../../../public/images/note.svg";
 import todo from "../../../public/images/todo.svg";
 import HomeEvents from "../../components/HomeEvents/EventCard/HomeEvents.jsx";
 import GoHome from "../../components/GoHome/GoHome.jsx";
+import {Link} from "react-router-dom";
 
 const HomePage = () => {
 
@@ -14,7 +15,7 @@ const HomePage = () => {
             <section>
                 <HomeEvents />
                 <HomeButton image={calendar} title="Calendário" />
-                <HomeButton image={notes} title="Suas Anotações" />
+                <Link to={"notes"} style={{ color: 'inherit', textDecoration: 'inherit'}}><HomeButton image={notes} title="Suas Anotações" /></Link>
                 <HomeButton image={todo} title="Lista de Tarefas" />
             </section>
         </section>
