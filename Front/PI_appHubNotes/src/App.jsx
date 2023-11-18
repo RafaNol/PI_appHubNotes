@@ -1,53 +1,40 @@
-import React, { useState } from 'react';
 import './App.css';
+import HomePage from "./pages/homePage/HomePage.jsx";
+import NewNote, {loader as fetchNoteById, action as submitData} from "./pages/newNote/NewNote.jsx";
+import NoteList, {loader as notesLoader} from "./pages/noteList/NoteList.jsx";
+import {createBrowserRouter, RouterProvider} from "react-router-dom";
+import GoHome from "./components/GoHome/GoHome.jsx";
+
+const router = createBrowserRouter([
+    {
+        path: "",
+        element: <GoHome />,
+        children: [
+            {index: true, element: <HomePage />},
+            {
+                path: '/notes',
+                element: <NoteList />,
+                loader: notesLoader,
+
+            },
+            {
+                path: '/notes/:noteId',
+                element: <NewNote method="PUT"/>,
+                loader: fetchNoteById,
+                action: submitData
+            },
+            {
+                path: "/notes/new-note",
+                element: <NewNote method="POST" />,
+                action: submitData
+            }
+        ]
+    }
+])
 
 function App() {
-  const [titulo, setTitulo] = useState('');
-  const [conteudo, setConteudo] = useState('');
-  const [tarefas, setTarefas] = useState([]);
-
-  const adicionarTarefa = () => {
-    if (titulo.trim() === '' || conteudo.trim() === '') {
-      return;
-    }
-
-    const novaTarefa = { titulo, conteudo };
-    setTarefas([...tarefas, novaTarefa]);
-    setTitulo('');
-    setConteudo('');
-  };
-
   return (
-    <div className="App" style={{ width: '393px', height: '852px' }}>
-      <header className="App-header">
-        <h1>Nova Anotação</h1>
-      </header>
-      <div className="container">
-        <div className="input-container">
-          <input
-            type="text"
-            placeholder="Título"
-            value={titulo}
-            onChange={(e) => setTitulo(e.target.value)}
-          />
-          <textarea
-            placeholder="nova Anotação"
-            value={conteudo}
-            onChange={(e) => setConteudo(e.target.value)}
-          />
-          <button onClick={adicionarTarefa}>Adicionar Tarefa</button>
-        </div>
-        <div className="tarefas-container">
-          {tarefas.map((tarefa, index) => (
-            <div key={index} className="tarefa">
-              <h2>{tarefa.titulo}</h2>
-              <p>{tarefa.conteudo}</p>
-            </div>
-          ))}
-        </div>
-        <button onClick={() => window.location.reload()}>Início</button>
-      </div>
-    </div>
+      <RouterProvider router={router} />
   );
 }
 

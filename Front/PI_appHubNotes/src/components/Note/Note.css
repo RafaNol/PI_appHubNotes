@@ -1,0 +1,27 @@
+.note-item {
+    width: 90%;
+    cursor: pointer;
+    padding: 10px;
+    margin: 3px 0;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+
+.note-item:hover {
+    background-color: #b69e7b;
+}
+
+.note-item p{
+    margin: 2px;
+}
+
+.note-item .var-colorA{
+    background-color: #FCE0B6;
+}
+
+.note-item .var-colorB{
+    background-color: #F9CB85;
+}
+

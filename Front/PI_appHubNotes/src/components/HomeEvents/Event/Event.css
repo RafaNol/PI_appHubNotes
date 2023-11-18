@@ -1,0 +1,23 @@
+.event-container{
+    width: 90%;
+    background-color: #D9D9D9;
+    margin: auto;
+    font-size: 25px;
+    display: flex;
+    font-weight: lighter;
+    color: #006633;
+    cursor: pointer;
+}
+
+.event-container:hover{
+    background-color: #c2c1c1;
+}
+
+.event-container p{
+    margin: 0 5px;
+    padding: 2px 0;
+}
+
+.event-container span{
+    margin: 0 10px;
+}

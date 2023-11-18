@@ -1,0 +1,25 @@
+.button-container{
+    background-color: #b2dfdb;
+    display: flex;
+    align-items: center;
+    color: #006633;
+    font-size: 20px;
+    padding: 15px 10px;
+    margin: 20px auto;
+    width: 90%;
+    border-radius: 7px;
+    outline: 0;
+    text-transform: uppercase;
+    box-shadow: 0 0 0 lightgray;
+    transition: ease background-color 250ms;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container:hover{
+    background-color: #80cbc4;
+}
+
+.button-container span{
+    margin: 0 25px 0 0;
+}
