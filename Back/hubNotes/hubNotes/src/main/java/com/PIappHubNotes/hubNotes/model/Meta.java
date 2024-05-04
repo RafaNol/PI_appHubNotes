@@ -20,6 +20,7 @@ public class Meta {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String title;
+    private Boolean metaFeita = false;
     private int diasSeguidos;
     private int totalDias;
 
@@ -29,17 +30,20 @@ public class Meta {
     @LastModifiedDate
     private LocalDateTime updated_at;
 
-    public int diasTotaisDaMeta(int contador) {
+    public void diasTotaisDaMeta() {
 
-        for (int i = 0; i >= 1; i++) {
-            contador++;
+        if (updated_at != created_at && metaFeita == true) {
+            totalDias += 1;
         }
-        return contador;
     }
 
-    public int diasTotaisSeguidos(int diasSeguidos) {
+    public int diasTotaisSeguidos() {
 
-
+        if(null != metaFeita && metaFeita == true) {
+            diasSeguidos += 1;
+        } else if(null != metaFeita && metaFeita == false) {
+            diasSeguidos = 0;
+        }
         return diasSeguidos;
     }
 }

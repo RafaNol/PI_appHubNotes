@@ -43,9 +43,9 @@ public class MetaController {
         Meta updatedMeta = metaRepository.findById(id)
                 .map(m -> {
                     m.setTitle(meta.getTitle());
-//                    m.diasTotaisDaMeta(meta.diasTotaisDaMeta(m.getDiasSeguidos()));
-//                    m.diasTotaisDaMeta(meta.diasTotaisDaMeta(m.getTotalDias()));
-//                    m.diasTotaisSeguidos(meta.diasTotaisSeguidos(m.getDiasSeguidos()));
+                    m.setMetaFeita(meta.getMetaFeita());
+                    m.diasTotaisDaMeta();
+                    m.diasTotaisSeguidos();
                     return metaRepository.save(m);
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Meta não encontrada"));
