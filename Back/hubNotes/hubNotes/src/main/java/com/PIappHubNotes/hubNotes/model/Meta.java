@@ -1,5 +1,6 @@
 package com.PIappHubNotes.hubNotes.model;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,8 @@ public class Meta {
     @GeneratedValue(strategy = GenerationType.UUID)
     private String id;
     private String title;
+
+    @JsonInclude(JsonInclude.Include.NON_NULL)
     private Boolean metaFeita = false;
     private int diasSeguidos;
     private int totalDias;
@@ -30,6 +33,7 @@ public class Meta {
     @LastModifiedDate
     private LocalDateTime updated_at;
 
+    //FAZ A CONTAGEM DO TOTAL DOS DIAS EM QUE O USUÁRIO REALISOU A META SEJAM DIAS SEGUIDOS OU NÃO
     public void diasTotaisDaMeta() {
 
         if (updated_at != created_at && metaFeita == true) {
@@ -37,6 +41,7 @@ public class Meta {
         }
     }
 
+    //FAZ A CONTAGEM DOS DIAS SEGUIDOS, CASO A SEGUÊNCIA SEJA INTERROMPIDA O CONTADOR É ZERADO E RECOMEÇA A CONTAGEM
     public int diasTotaisSeguidos() {
 
         if(null != metaFeita && metaFeita == true) {
