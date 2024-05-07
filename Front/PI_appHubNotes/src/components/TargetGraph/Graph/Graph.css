@@ -1,0 +1,20 @@
+.graph-container{
+    display: flex;
+    width: 100%;
+    margin: 15px 0;
+}
+
+.graph-title{
+    flex: 1;
+}
+
+.graph-title-text{
+    text-align: center;
+    font-size: 16px;
+    color: #006633;
+}
+
+.graph-lines{
+    flex: 2;
+    align-self: center;
+}

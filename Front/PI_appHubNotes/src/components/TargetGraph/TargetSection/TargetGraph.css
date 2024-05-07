@@ -1,0 +1,30 @@
+.target-container{
+    background-color: #F8C06D;
+    padding-bottom: 10px;
+}
+
+.target-title{
+    color: #006633;
+    font-size: 24px;
+    text-align: center;
+    font-weight: lighter;
+    margin: 10px 0;
+}
+
+.target-expl{
+    display: flex;
+    justify-content: center;
+}
+
+.target-expl-text{
+    width: 100%;
+    text-align: center;
+}
+
+.left-text{
+    color: #206020;
+}
+
+.right-text{
+    color: #40BF40;
+}

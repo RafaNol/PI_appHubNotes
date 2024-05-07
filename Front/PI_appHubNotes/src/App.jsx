@@ -4,6 +4,7 @@ import NewNote, {loader as fetchNoteById, action as submitData} from "./pages/ne
 import NoteList, {loader as notesLoader} from "./pages/noteList/NoteList.jsx";
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import GoHome from "./components/GoHome/GoHome.jsx";
+import Target from "./pages/target/Target.jsx";
 
 const router = createBrowserRouter([
     {
@@ -15,7 +16,6 @@ const router = createBrowserRouter([
                 path: '/notes',
                 element: <NoteList />,
                 loader: notesLoader,
-
             },
             {
                 path: '/notes/:noteId',
@@ -27,6 +27,10 @@ const router = createBrowserRouter([
                 path: "/notes/new-note",
                 element: <NewNote method="POST" />,
                 action: submitData
+            },
+            {
+                path: "/target",
+                element: <Target />,
             }
         ]
     }

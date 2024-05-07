@@ -1,0 +1,21 @@
+.targetItem-container{
+    background-color: #F9CB85;
+    display: flex;
+    margin: 20px 0 20px 0;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.targetItem-container:hover{
+    background-color: #ecbd7a;
+}
+
+.targetItem-container p{
+    font-size: 25px;
+    margin: 5px 0 5px 20px;
+    color: #006633;
+}
+
+.targetItem-container img{
+    margin-right: 10px;
+}

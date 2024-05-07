@@ -2,9 +2,8 @@ import "./HomePage.css";
 import calendar from "../../../public/images/calendar.svg";
 import HomeButton from "../../components/HomeButton/HomeButton.jsx";
 import notes from "../../../public/images/note.svg";
-import todo from "../../../public/images/todo.svg";
+import target from "../../../public/images/target.svg";
 import HomeEvents from "../../components/HomeEvents/EventCard/HomeEvents.jsx";
-import GoHome from "../../components/GoHome/GoHome.jsx";
 import {Link} from "react-router-dom";
 
 const HomePage = () => {
@@ -16,7 +15,7 @@ const HomePage = () => {
                 <HomeEvents />
                 <HomeButton image={calendar} title="Calendário" />
                 <Link to={"notes"} style={{ color: 'inherit', textDecoration: 'inherit'}}><HomeButton image={notes} title="Suas Anotações" /></Link>
-                <HomeButton image={todo} title="Lista de Tarefas" />
+                <Link to={"target"} style={{ color: 'inherit', textDecoration: 'inherit'}}><HomeButton image={target} title="Metas" /></Link>
             </section>
         </section>
     )

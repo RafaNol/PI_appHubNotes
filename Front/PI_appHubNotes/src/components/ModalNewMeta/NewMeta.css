@@ -1,0 +1,60 @@
+.newMeta-blackContainer{
+    width: 393px;
+    height: 100vh;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    opacity: 0.5;
+}
+
+.newMeta-container{
+    width: 393px;
+    height: 35vh;
+    background-color: #F4970B;
+    position: absolute;
+    top: 20%;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.newMeta-title{
+    font-weight: bold;
+    text-align: center;
+    color: #006633;
+    font-size: 25px;
+}
+
+.newMeta-inputHolder{
+    background-color: #F9CB85;
+    width: 100%;
+    display: flex;
+}
+
+.newMeta-input{
+    background-color: #F9CB85;
+    width: 85%;
+    border: none;
+    font-size: 25px;
+    margin: auto;
+    color: #006633;
+    padding: 10px;
+}
+
+.newMeta-input:focus{
+    outline: none;
+}
+
+.newMeta-buttons{
+
+    display: flex;
+    justify-content: space-between;
+    margin: 40px 10px 0 10px;
+}
+
+.newMeta-buttons button{
+    width: 150px;
+}
+
+
+

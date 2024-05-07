@@ -1,0 +1,30 @@
+.target-main-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    color: #006633;
+    row-gap: 10px;
+}
+
+.target-main-container h1{
+    margin: 10px 0 ;
+}
+
+.main-home-container{
+    width: 90%;
+    align-self: center;
+}
+
+.target-targetArea{
+    height: 38vh;
+    overflow: scroll;
+}
+
+.target-targetArea::-webkit-scrollbar{
+    display: none;
+}
+
+.target-buttons{
+    align-self: end;
+    margin-right: 15px;
+}

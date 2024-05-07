@@ -1,0 +1,77 @@
+.metaDetailsModal-container{
+    width: 393px;
+    height: 100vh;
+    background-color: black;
+    opacity: 0.5;
+    position: absolute;
+    top: 0;
+}
+
+.metaDetails-container{
+    position: absolute;
+    top: 20%;
+    width: 393px;
+    background-color: #ec9517;
+    height: 50vh;
+    z-index: 1;
+}
+
+.modal-title{
+    background-color: #F9CB85;
+    text-align: center;
+    font-weight: bold;
+}
+
+.modal-title h1{
+    color: #006633;
+    font-weight: normal;
+}
+
+.metaDetails-detail{
+    width: 100%;
+    height: 30vh;
+    background-color: #F9CB85;
+}
+
+.metaDetails-detail-title{
+    text-align: center;
+    font-size: 25px;
+    color: #006633;
+    padding-top: 15px;
+}
+
+.metaDetails-detail-textArea{
+    display: flex;
+    gap: 12px;
+}
+
+.metaDetails-detail-left{
+    flex: 1;
+    text-align: right;
+    color: #006633;
+    font-size: 20px;
+}
+
+.metaDetails-detail-right{
+    flex: 1;
+    color: #006633;
+    font-size: 20px;
+}
+
+
+
+
+
+
+.metaDetails-buttons{
+    display: flex;
+    margin-top: 20px;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.metaDetails-buttons button{
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 150px;
+}
