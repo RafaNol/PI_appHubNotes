@@ -29,15 +29,21 @@
 
 .metaDetails-detail{
     width: 100%;
-    height: 30vh;
+    height: 32vh;
     background-color: #F9CB85;
+    display: flex;
+    flex-direction: column;
+}
+
+.metaButton{
+    align-self: end;
+    margin-right: 10px;
 }
 
 .metaDetails-detail-title{
     text-align: center;
     font-size: 25px;
     color: #006633;
-    padding-top: 15px;
 }
 
 .metaDetails-detail-textArea{
@@ -63,6 +69,7 @@
 
 
 
+
 .metaDetails-buttons{
     display: flex;
     margin-top: 20px;
@@ -74,4 +81,13 @@
     margin-left: 20px;
     margin-right: 20px;
     width: 150px;
+}
+
+.metaDetails-buttons-disable button{
+    background-color: grey;
+}
+
+.metaDetails-buttons-disable button:hover{
+    background-color: grey;
+    cursor: auto;
 }

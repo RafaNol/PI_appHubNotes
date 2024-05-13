@@ -8,9 +8,14 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:3000")
+
 @RequestMapping("/metas")
 public class MetaController {
 
@@ -20,13 +25,16 @@ public class MetaController {
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public Meta adicionarMeta(@RequestBody Meta meta) {
+        LocalDateTime currentDateTime = LocalDateTime.now();
+        meta.setDiasSeguidos(0);
+        meta.setCreated_at(currentDateTime);
+        meta.setTotalDias(0);
+        meta.setUpdated_at(null);
         return metaRepository.save(meta);
     }
 
     @GetMapping
     public List<Meta> listarMetas() {
-        Meta meta = new Meta();
-        meta.getTotalDias();
         return metaRepository.findAll();
     }
 
@@ -43,9 +51,16 @@ public class MetaController {
         Meta updatedMeta = metaRepository.findById(id)
                 .map(m -> {
                     m.setTitle(meta.getTitle());
-                    m.setMetaFeita(meta.getMetaFeita());
-                    m.diasTotaisDaMeta();
-                    m.diasTotaisSeguidos();
+                    m.setTotalDias(m.getTotalDias() + 1);
+                    LocalDateTime currentDate = LocalDateTime.now();
+                    if (m.getUpdated_at() == null) {
+                        m.setDiasSeguidos(1);
+                    } else if (m.getUpdated_at().toLocalDate().plusDays(1).isEqual(currentDate.toLocalDate())) {
+                        m.setDiasSeguidos(m.getDiasSeguidos() + 1);
+                    } else {
+                        m.setDiasSeguidos(0);
+                    }
+                    m.setUpdated_at(currentDate);
                     return metaRepository.save(m);
                 })
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Meta não encontrada"));

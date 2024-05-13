@@ -3,7 +3,8 @@ import Graph from "../Graph/Graph.jsx";
 
 const TargetGraph = (props) => {
 
-    // preciso adicinar um objeto todo que venha com todos os itens do endpoit no props tipo props.listaDeTarefas ai la tem todos os titulos, dias e etc
+    console.log(props.ObjetoAqui)
+
     return(
         <section className="target-container">
             <h1 className="target-title">Resumo</h1>
@@ -14,9 +15,14 @@ const TargetGraph = (props) => {
             </div>
 
             <div className="target-items">
-                <Graph title="Jogar Bola" sequencia={2} total={3} />
-                <Graph title="Estudar 1 hora" sequencia={7} total={13} />
-                <Graph title="Ler livro" sequencia={4} total={9} />
+                {props.ObjetoAqui.map((item, index) => (
+                    <Graph
+                        key={item.id}
+                        title={item.title}
+                        sequencia={item.diasSeguidos}
+                        total={item.totalDias}
+                    />
+                ))}
             </div>
 
 

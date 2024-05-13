@@ -11,3 +11,12 @@
 .app-button button:hover{
     background-color: #039a4e;
 }
+
+.newMeta-saveButton button{
+    background-color: grey;
+}
+
+.newMeta-saveButton button:hover{
+    background-color: grey;
+    cursor: auto;
+}

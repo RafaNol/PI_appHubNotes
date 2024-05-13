@@ -6,23 +6,31 @@ import TargetItem from "../../components/Target/TargetItem.jsx";
 import {useState} from "react";
 import MetaDetails from "../../components/ModalMetaDetails/MetaDetails.jsx";
 import NewMeta from "../../components/ModalNewMeta/NewMeta.jsx";
+import {useLoaderData} from "react-router-dom";
 
 const Target = () => {
 
-    const {weekday, month, day, year} = getCurrentDateInfo();
+    const target = useLoaderData();
+
+                                                                                                                        const {weekday, month, day, year} = getCurrentDateInfo();
     const datePhrase = `${weekday}. ${day} de ${month} de ${year} `
 
     const [modalDetail, setModalDetail] = useState(false);
     const [newMeta, setNewMeta] = useState(false);
 
-    const modalSwitch = () => {
+    const modalSwitch = (id) => {
         setModalDetail(prevState => !prevState);
+        setGetId(id)
     }
 
     const newMetaSwitch = () => {
         setNewMeta(prevState => !prevState);
     }
 
+
+    const [getId, setGetId] = useState("");
+
+    
     return (
         <div className="target-main-container">
             <div className="main-home-container">
@@ -30,20 +38,13 @@ const Target = () => {
                 <p>{datePhrase}</p>
             </div>
 
-            <TargetGraph ObjetoAqui={"objeto da api"}/>
+            <TargetGraph ObjetoAqui={target} />
 
             <div className="target-targetArea">
-                <TargetItem onClick={modalSwitch} title="Teste item 1"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 2"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 3"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 4"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 5"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 6"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 7"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 8"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 9"/>
-                <TargetItem onClick={modalSwitch} title="Teste item 10"/>
-                {modalDetail && <MetaDetails modalSwitch={modalSwitch}/>}
+                {target.length === 0? <p className="empty-note">Sem Metas para Exibir, experimente Criar uma</p> : target.map((target, index) => (
+                    <TargetItem onClick={modalSwitch.bind(null, target.id)} to={target.id} key={target.id} index={index} title={target.title} idItem={target.id}/>
+                ))}
+                {modalDetail && <MetaDetails id={getId} modalSwitch={modalSwitch}/>}
             </div>
 
 
@@ -60,3 +61,7 @@ const Target = () => {
 }
 
 export default Target
+
+export async function loader() {
+    return await fetch('http://localhost:8080/metas');
+}

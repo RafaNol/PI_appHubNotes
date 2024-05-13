@@ -28,3 +28,12 @@
 .right-text{
     color: #40BF40;
 }
+
+.target-items{
+    height: 200px;
+    overflow: scroll;
+}
+
+.target-items::-webkit-scrollbar{
+    display: none;
+}
